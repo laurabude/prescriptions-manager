@@ -4,5 +4,3 @@ node_modules
 **/.idea
 .DS_Store
 **.DS_Store
-frontend/.angular/cache/
-frontend/.angular/cache/
