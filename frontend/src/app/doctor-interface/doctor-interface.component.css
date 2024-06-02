@@ -1,0 +1,133 @@
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn-set-prescription {
+    background-color: #819171;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+.btn-set-prescription:hover {
+    background-color: #819171;
+}
+
+.doctor-interface-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.select-field {
+    width: 100%;
+}
+
+.input-container {
+    margin-bottom: 16px;
+}
+
+button {
+    margin-top: 16px;
+}
+
+.input-container {
+    margin-bottom: 16px;
+}
+
+.input-container label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input-container input,
+.input-container input[type="time"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.prescription-table-container {
+    float: right;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.prescription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.prescription-table th,
+.prescription-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.prescription-table th {
+    background-color: #819171;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+.doctor-interface-container {
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-size: 16px;
+    width: 400px;
+}
+
+.prescription-table-card {
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    font-size: 16px;
+    margin-top: 20px;
+    width: 500px;
+    height: 600px;
+    margin-left: 50px;
+}
+
+.prescription-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.prescription-table th,
+.prescription-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.prescription-table th {
+    background-color: #819171;
+    color: white;
+}
+
+.mdc-text-field {
+    width: 100%;
+}
+
+.margin {
+    margin-top: 10px;
+}

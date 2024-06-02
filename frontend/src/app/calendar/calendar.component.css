@@ -1,0 +1,16 @@
+:host {
+    display: block;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+}
+
+.mwl-calendar-month-view {
+    width: 100%;
+    max-width: 100%;
+    height: 600px;
+}
+
+.patient-info {
+    margin-bottom: 5px;
+}

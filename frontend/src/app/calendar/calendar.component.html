@@ -1,0 +1,6 @@
+<div class="patient-info">
+    <h2>Medication scheduler</h2>
+</div>
+
+<mwl-calendar-month-view [viewDate]="viewDate" [events]="medicationEvents" (dayClicked)="onDayClicked($event)" [activeDayIsOpen]="activeDayIsOpen" (eventClicked)="onEventClicked($event)">
+</mwl-calendar-month-view>

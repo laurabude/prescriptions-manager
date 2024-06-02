@@ -1,0 +1,78 @@
+/* Update your styles with the following */
+
+.navbar {
+    background: #758467;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 7vh;
+    box-shadow: 0.063rem 0 1.25rem 0 #8690a3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #eceff1;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.navbar-link,
+.sign-out,
+.btns-login {
+    text-decoration: none;
+    color: #f3f3f3;
+    border-radius: 0.625rem;
+    transition: all 0.3s ease;
+    padding: 10px;
+}
+
+.navbar-link:hover,
+.sign-out:hover,
+.btns-login:hover {
+    background-color: #eceff1;
+    color: #000;
+}
+
+.logged-user {
+    display: flex;
+    align-items: center;
+}
+
+.logged-in button {
+    margin-left: 10px;
+}
+
+.sign-out,
+.btns-login {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.margin-bottom {
+    margin-bottom: 10px;
+}
+
+.padding-10px {
+    padding: 10px;
+}
+
+.hello-user {
+    color: white
+}

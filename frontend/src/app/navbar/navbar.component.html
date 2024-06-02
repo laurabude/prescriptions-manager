@@ -1,0 +1,45 @@
+<nav class="navbar">
+    <div class="logo-container">
+        <div class="logo-text">Prescription manager</div>
+    </div>
+    <ul class="navbar-nav">
+        <ng-container *ngFor="let data of navData">
+            <ng-container *ngIf="isLoggedIn && ( (data.adminRequired && isAdmin) || (data.patientOnly && !isAdmin) || data.common )" class="navbar-item">
+                <a class="navbar-link" [routerLink]="[data.routeLink]" routerLinkActive="active">
+                    <div class="navbar-link-text">
+                        {{ data.label }}
+                    </div>
+                </a>
+            </ng-container>
+        </ng-container>
+    </ul>
+
+    <div class="logged-user">
+        <ng-container *ngIf="isLoggedIn; else elseBlock">
+            <div class="logged-in">
+                <div class="hello-user">Hello, {{ username }}!
+                    <button class="sign-out" (click)="signOut()">
+                    Sign out
+                    <i class="fa fa-sign-out" aria-hidden="true"></i>
+                </button>
+                </div>
+            </div>
+        </ng-container>
+        <ng-template #elseBlock>
+            <div class="logged-in">
+                <a routerLink="/login">
+                    <button class="sign-out">
+                        Login
+                        <span class="navbar-link-icon fa fa-solid arrow-right-to-bracket"></span>
+                    </button>
+                </a>
+                <a routerLink="/register">
+                    <button class="sign-out">
+                        Sign up
+                        <i class="fa fa-sign-in"></i>
+                    </button>
+                </a>
+            </div>
+        </ng-template>
+    </div>
+</nav>

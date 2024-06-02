@@ -1,0 +1,39 @@
+<div class="col-md-12">
+    <div class="card card-container">
+        <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+            <p class="welcome">WELCOME</p>
+            <mat-form-field class="inputs" [hideRequiredMarker]="true">
+                <mat-label>Username</mat-label>
+                <input matInput type="text" class="form-control" name="username" [(ngModel)]="form.username" required #username="ngModel" [ngClass]="{ 'is-invalid': f.submitted && username.errors }" />
+                <mat-error *ngIf="username.errors && f.submitted" class="invalid-feedback">
+                    Username is required!
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field class="inputs" [hideRequiredMarker]="true">
+                <mat-label>Password</mat-label>
+                <input matInput type="password" class="form-control" name="password" [(ngModel)]="form.password" required minlength="6" #password="ngModel" [ngClass]="{ 'is-invalid': f.submitted && password.errors }" />
+                <mat-error>
+                    <div *ngIf="password.errors?.['required']">Password is required</div>
+                    <div *ngIf="password.errors?.['minlength']">
+                        Password must be at least 6 characters
+                    </div>
+                </mat-error>
+            </mat-form-field>
+            <div class="form-group">
+                <button mat-raised-button class="btn btn-primary btn-block">
+          Login
+        </button>
+            </div>
+            <p> <a [routerLink]="['/register']">Don't have an account? Register here</a></p>
+            <div class="form-group">
+                <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger" role="alert">
+                    Login failed: {{ errorMessage }}
+                </div>
+            </div>
+        </form>
+
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+            Hello {{ form.username }}!
+        </div>
+    </div>
+</div>

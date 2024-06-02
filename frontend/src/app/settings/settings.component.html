@@ -1,0 +1,27 @@
+<div class="settings">
+    <div class="settings-card">
+        <h3>{{ this.user.username }}'s Settings</h3>
+    </div>
+    <div class="parallel">
+        <div class="user-info">
+            <div class="border-left user-section">
+                New Username:
+                <input type="text" placeholder="Username" name="username" [(ngModel)]="usernameForm['username']" /><br /> Email:
+                <input type="text" placeholder="Email" name="email" [(ngModel)]="usernameForm['email']" /><br /> Password:
+                <input type="password" placeholder="Password" name="password" [(ngModel)]="usernameForm['password']" /><br />
+                <button class="edit-email" (click)="changeUsername()">
+          Change Username
+        </button>
+            </div>
+            <div class="border-left user-section">
+                Old Password:
+                <input type="password" placeholder="Old Password" name="oldPassword" [(ngModel)]="passwordForm['oldPass']" /><br /> New Password:
+                <input type="password" placeholder="New Password" name="newPassword" [(ngModel)]="passwordForm['password']" /><br /> Confirm New Password:
+                <input type="password" placeholder="Confrim New Password" name="confirmPassword" [(ngModel)]="passwordForm['confirmPassword']" /><br />
+                <button class="password-change" (click)="changePassword()">
+          Change password
+        </button>
+            </div>
+        </div>
+    </div>
+</div>
