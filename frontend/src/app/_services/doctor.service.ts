@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root', 
   })
 export class DoctorService {
-  private backendUrl = 'http://localhost:8080/api'; // Replace with your backend URL
+  private backendUrl = 'http://localhost:8080/api'; 
 
   constructor(private http: HttpClient,private userService: UserService) {}
 
@@ -28,6 +28,10 @@ export class DoctorService {
 
   setPrescription(prescriptionData: any) {
     return this.http.post(`${this.backendUrl}/medication/prescribe`,prescriptionData);
+  }
+
+  deletePrescription(id: any) {
+    return this.http.post(`${this.backendUrl}/medication/deletePrescription`,{id:id});
   }
 
   getMedicationForUser(user: string) {

@@ -15,4 +15,6 @@ module.exports = function(app) {
 
     app.get("/api/medication/getAllPrescriptions", controller.getAllPrescriptions);
 
+    app.post("/api/medication/deletePrescription", controller.deleteMedication);
+
 };

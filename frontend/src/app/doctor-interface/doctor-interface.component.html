@@ -52,6 +52,7 @@
                     <th>Dosage</th>
                     <th>Time</th>
                     <th>Days</th>
+                    <th>Delete entry</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +62,7 @@
                     <td>{{ prescription.dosage }}</td>
                     <td>{{ prescription.time }}</td>
                     <td>{{ prescription.days }}</td>
+                    <td><button mat-raised-button (click)="deletePrescription(prescription._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>
