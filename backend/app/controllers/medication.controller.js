@@ -43,3 +43,27 @@ exports.getAllPrescriptions = (req, res) => {
             res.status(200).json(medication);
         })
 }
+
+exports.deleteMedication = (req, res) => {
+    const medicationId = req.body.id;
+
+    // Verificați dacă id-ul a fost furnizat în corpul cererii
+    if (!medicationId) {
+        return res.status(400).send({ message: 'Medication ID is required' });
+    }
+
+    Medication.deleteOne({ _id: medicationId })
+        .exec((err, result) => {
+            if (err) {
+                return res.status(500).send({ message: err.message || 'An error occurred while deleting the medication' });
+            }
+
+            // Verificați dacă a fost șters un document
+            if (result.deletedCount === 0) {
+                return res.status(404).send({ message: 'Medication not found' });
+            }
+
+            // Trimiteți un răspuns de succes
+            res.status(200).send({ message: 'Medication deleted successfully' });
+        });
+};
