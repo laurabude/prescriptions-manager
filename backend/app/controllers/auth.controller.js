@@ -129,18 +129,7 @@ exports.getUsers = (req, res) => {
             res.status(500).send({ message: err });
             return;
         }
-
-        Role.findOne({ name: "admin" }, (err, role) => {
-            if (err) {
-                res.status(500).send({ message: err });
-                return;
-            }
-
-            const filteredUsers = users.filter(user => !user.roles.includes(role.id));
-
-            console.log(filteredUsers);
-            res.status(200).json(filteredUsers);
-        })
+        res.status(200).json(users.map(user => user))
     })
 }
 

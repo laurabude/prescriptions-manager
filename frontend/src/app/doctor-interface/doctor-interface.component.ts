@@ -64,15 +64,6 @@ export class DoctorInterfaceComponent implements OnInit {
       }
     )
   }
-
-  deletePrescription(id:any) {
-    this.doctorService.deletePrescription(id).subscribe(
-      (data:any) => {
-        this.getPrescriptions();
-      }
-    )
-  }
-
   onDayClicked(day: { day: MonthViewDay<any>; sourceEvent: MouseEvent | KeyboardEvent }): void {
     const clickedDate = day.day.date;
 
