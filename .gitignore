@@ -4,4 +4,10 @@ node_modules
 **/.idea
 .DS_Store
 **./DS_Store
-
+/dist/
+/*.log
+/*.lock
+/*.swp
+/.angular
+/angular.json
+/.vscode/
