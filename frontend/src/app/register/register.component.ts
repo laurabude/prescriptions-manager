@@ -30,10 +30,13 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     const { username, email, password, pic } = this.form;
-
+    if ( username.indexOf(' ') !== null){
+      this.isSignUpFailed = true;
+      this.errorMessage = "Username cannot contain whitespace";
+      return;
+    }
     this.authService.register(username, email, password, pic).subscribe({
       next: (data) => {
-        console.log(pic);
         this.isSuccessful = true;
         this.isSignUpFailed = false;
       },

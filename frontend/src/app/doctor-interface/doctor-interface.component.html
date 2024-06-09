@@ -1,45 +1,61 @@
 <div class="container">
     <div class="doctor-interface-container mat-elevation-z2">
         <h2>Prescribe:</h2>
-        <mat-form-field appearance="fill" class="select-field margin">
-            <label for="patientSelect">Select Patient:</label>
-            <mat-select id="patientSelect" [(ngModel)]="selectedPatient">
-                <mat-option *ngFor="let patient of patients" [value]="patient.username">
-                    {{ patient.username }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <div class="input-container">
-            <mat-form-field appearance="fill" class="select-field">
-                <label for="medication">Medication:</label>
-                <input matInput type="text" id="medication" [(ngModel)]="medication" />
-            </mat-form-field>
-        </div>
-        <div class="input-container">
-            <mat-form-field appearance="fill" class="select-field">
-                <label for="dosage">Dosage:</label>
-                <input matInput type="text" id="dosage" [(ngModel)]="dosage" />
-            </mat-form-field>
-        </div>
-
-        <div class="input-container">
-            <label for="time">Time to take medication:</label>
-            <input type="time" id="time" [(ngModel)]="time" />
-        </div>
-
-        <div class="input-container">
-            <mat-form-field appearance="fill" class="select-field">
-                <label for="days">Take every:</label>
-                <mat-select id="days" [(ngModel)]="days">
-                    <mat-option [value]="[1, 2, 3, 4, 5, 6, 7]">day</mat-option>
-                    <mat-option [value]="[2, 4, 6]">other day</mat-option>
-                    <mat-option [value]="[3, 6]">3 days</mat-option>
+        <form (ngSubmit)="form.form.valid && setPrescription()" #form="ngForm" novalidate>
+            <mat-form-field appearance="fill" class="select-field margin">
+                <mat-label>Select Patient:</mat-label>
+                <mat-select [(ngModel)]="selectedPatient" name="selectedPatient" required #selectedPatientModel="ngModel">
+                    <mat-option *ngFor="let patient of patients" [value]="patient.username">
+                        {{ patient.username }}
+                    </mat-option>
                 </mat-select>
+                <mat-error *ngIf="selectedPatientModel.invalid && (selectedPatientModel.dirty || selectedPatientModel.touched)">
+                    Patient is required!
+                </mat-error>
             </mat-form-field>
-        </div>
 
-        <button mat-raised-button class="btn-set-prescription" (click)="setPrescription()">Set Prescription</button>
+            <div class="input-container">
+                <mat-form-field appearance="fill" class="select-field">
+                    <mat-label for="medication">Medication:</mat-label>
+                    <input matInput type="text" id="medication" [(ngModel)]="medication" name="medication" required #medicationModel="ngModel" />
+                    <mat-error *ngIf="medicationModel.invalid && (medicationModel.dirty || medicationModel.touched)">
+                        Medication is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="input-container">
+                <mat-form-field appearance="fill" class="select-field">
+                    <mat-label for="dosage">Dosage:</mat-label>
+                    <input matInput type="text" id="dosage" [(ngModel)]="dosage" name="dosage" required #dosageModel="ngModel" />
+                    <mat-error *ngIf="dosageModel.invalid && (dosageModel.dirty || dosageModel.touched)">
+                        Dosage is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="input-container">
+                <mat-form-field appearance="fill" class="select-field">
+                    <mat-label for="time">Time to take medication:</mat-label>
+                    <input matInput type="time" id="time" [(ngModel)]="time" name="time" required #timeModel="ngModel" />
+                </mat-form-field>
+            </div>
+
+            <div class="input-container">
+                <mat-form-field appearance="fill" class="select-field">
+                    <mat-label for="days">Take every:</mat-label>
+                    <mat-select id="days" [(ngModel)]="days" name="days" required #daysModel="ngModel">
+                        <mat-option [value]="[1, 2, 3, 4, 5, 6, 7]">day</mat-option>
+                        <mat-option [value]="[2, 4, 6]">other day</mat-option>
+                        <mat-option [value]="[3, 6]">3 days</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="daysModel.invalid && (daysModel.dirty || daysModel.touched)">
+                        Days selection is required!
+                    </mat-error>
+                </mat-form-field>
+            </div>
+
+            <button mat-raised-button class="btn-set-prescription" type="submit">Set Prescription</button>
+        </form>
     </div>
 
     <div class="prescription-table-card mat-elevation-z2">
@@ -52,6 +68,7 @@
                     <th>Dosage</th>
                     <th>Time</th>
                     <th>Days</th>
+                    <th>Delete entry</th>
                 </tr>
             </thead>
             <tbody>
@@ -61,6 +78,7 @@
                     <td>{{ prescription.dosage }}</td>
                     <td>{{ prescription.time }}</td>
                     <td>{{ prescription.days }}</td>
+                    <td><button mat-raised-button (click)="deletePrescription(prescription._id)">Delete</button></td>
                 </tr>
             </tbody>
         </table>

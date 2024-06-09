@@ -101,7 +101,7 @@ button {
     padding: 20px;
     font-size: 16px;
     margin-top: 20px;
-    width: 500px;
+    width: 580px;
     height: 600px;
     margin-left: 50px;
 }
@@ -130,4 +130,10 @@ button {
 
 .margin {
     margin-top: 10px;
+}
+
+#time,
+#dosage,
+#medication {
+    border: none;
 }
